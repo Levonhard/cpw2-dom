@@ -9,7 +9,7 @@ function background(){
      * Desenvolva uma função capaz de trocar a cor do fundo da página, ou seja,
      * alterar o background do body para a cor #BECCC3.
      */
-
+     document.querySelector("body").style.backgroundColor = "#BECCC3"
 }
 
 /**
@@ -25,6 +25,11 @@ function show(){
       * Recupera os valores dos campos de texto cujo o id='fname' e id='lname' e apresente o nome
       * e o sobrenome de uma pessoa (separado por um espaço) na div id='result'
       */
+
+      let fname = document.querySelector("#fname").value
+      let lname = document.querySelector("#lname").value
+  
+      document.getElementById("result").innerHTML = ("<p>" + fname + " " + lname + "</p>")
 }
 
 /**
@@ -52,6 +57,28 @@ function search(){
      * Além disso, a função removeAllChildren abaixo também pode ser útil para o desenvolvimento da solução
      */
 
+    function createSearchResult(name) {
+        const div = document.createElement("div")
+        div.textContent = name
+        return div
+    }
+
+     const searchResult = document.getElementById("search")
+     removeAllChildren(searchResult)
+ 
+     let dataNames = new Array
+ 
+     data.forEach(function(e) {
+         dataNames.push(e.name)
+     })
+ 
+     let userInput = document.getElementById("name").value.toUpperCase()
+
+     dataNames.forEach(function(e) {
+         if (userInput == e.toUpperCase().substr(0, userInput.length)) {
+            searchResult.appendChild(createSearchResult(e))
+         }
+     })
 }
 
 /**
